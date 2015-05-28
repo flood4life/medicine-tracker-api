@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, only: []
 
-  namespace :api, defaults: { format: :json } do
-    resource :login, only: :create
+  scope defaults: { format: :json } do
+    resources :login, only: :create
+    resources :users
+    resources :rules
   end
 
 end

@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   after_create :update_access_token!
 
+  has_one :schedule
+
   validates :login, presence: true
   validates :email, presence: true
 
