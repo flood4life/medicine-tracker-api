@@ -9,9 +9,9 @@ class ApplicationController < ActionController::API
     auth_token = request.headers[:authorization]
 
     if auth_token
-
+      authenticate_with_token(auth_token)
     else
-
+      authentication_error
     end
   end
 
