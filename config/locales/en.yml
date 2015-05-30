@@ -4,3 +4,4 @@ en:
   errors:
     unauthorized: 'Unauthorized'
     invalid_login: 'Invalid login attempt'
+    param_missing: 'is required'

@@ -15,6 +15,11 @@ class ApplicationController < ActionController::API
     end
   end
 
+  rescue_from(ActionController::ParameterMissing) do |parameter_missing_exception|
+    error = { error: "#{parameter_missing_exception.param} #{t('errors.param_missing')}" }
+    render json: error, status: :unprocessable_entity
+  end
+
   private
 
   def authenticate_with_token(token)
